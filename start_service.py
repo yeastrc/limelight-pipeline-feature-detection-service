@@ -70,7 +70,7 @@ class RequestFeatureDetectionRun(Resource):
 
         print('Feature detection run request:')
         print('\tDate:', datetime.today().strftime('%Y-%m-%d'))
-        print('\trequest_id:', project_id)
+        print('\trequest_id:', request_id)
         print('\tproject_id:', project_id)
         print('\tspectr_file_id:', spectr_file_id)
 
