@@ -12,6 +12,7 @@ services:
       - traefik.enable=false
     environment:
       SPECTR_GET_SCAN_DATA_URL: ${SPECTR_GET_SCAN_DATA_URL}
+      SPECTR_GET_SCAN_NUMBERS_URL: ${SPECTR_GET_SCAN_NUMBERS_URL}
       WEBAPP_PORT: ${WEBAPP_PORT}
       SPECTR_BATCH_SIZE: ${SPECTR_BATCH_SIZE}
     volumes:
