@@ -1,0 +1,5 @@
+/.idea/
+/ven/
+/.env
+/generate_test_json.py
+/app/__pycache__/

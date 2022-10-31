@@ -1,0 +1,32 @@
+# example .env file to be used with docker-compose
+
+# The full path to a directory on the host machine where the final files will be placed
+HOST_MACHINE_FINAL_DIR=
+
+# The full path to a directory on the host machine that will be used as a working directory
+HOST_MACHINE_WORKDIR=
+
+# The port on the host machine that will listen to requests to this service
+HOST_MACHINE_WEBAPP_PORT=
+
+# URLs to get data from spectr
+SPECTR_GET_SCAN_DATA_URL=http://HOST:PORT/spectral_storage_get_data/query/getScanDataFromScanNumbers_JSON
+SPECTR_GET_SCAN_NUMBERS_URL=http://HOST:PORT/spectral_storage_get_data/query/getScanNumbers_JSON
+
+# should probably change these, defaults to running as root
+# change the UID and GID to the user id number and group id number
+# this service will run as within the container
+UID=0
+GID=0
+
+# the maximum number of scans that will be fetched at a time from spectr
+# ideally this will match spectr's configured maximum batch size
+SPECTR_BATCH_SIZE=200
+
+# data in the working directory will be deleted on successful runs
+# change to "no" to never delete, "yes" to always delete
+APP_CLEAN_WORKDIR="on success"
+
+# the port the webapp will use in the docker container
+# likely will not need to change this
+WEBAPP_PORT=3434
