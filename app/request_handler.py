@@ -52,6 +52,10 @@ def process_request(request, request_status_dict):
         None
     """
 
+    print('Processing request:')
+    print('\trequest', request)
+    print('\trequest_status_dict', request_status_dict)
+
     workdir = None
 
     try:
