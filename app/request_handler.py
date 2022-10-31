@@ -62,6 +62,9 @@ def process_request(request, request_status_dict):
 
         workdir = get_workdir(request)
 
+        request_status_dict[request['id']]['status'] = 'processing'
+        request_status_dict[request['id']]['end_user_message'] = 'Initiating feature detection pipeline run...'
+
         run_pipeline_methods.export_spectral_data(request, request_status_dict, workdir)
         run_pipeline_methods.write_hardklor_config_file(request, request_status_dict, workdir)
         run_pipeline_methods.execute_hardklor(request, request_status_dict, workdir)
