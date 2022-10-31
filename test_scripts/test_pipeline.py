@@ -20,16 +20,28 @@ import json
 import time
 from dotenv import load_dotenv
 
+
+def read_conf_file(conf_filename):
+    conf_file = open(conf_filename, "r")
+    data = conf_file.read()
+    conf_file.close()
+
+    return data
+
+
 # load values from .env into env
 load_dotenv()
 
 service_host = 'localhost'
 service_port = os.getenv('WEBAPP_PORT')
 
-test_json_str = os.getenv('CONVERSION_TEST_JSON')
-test_json_parsed = json.loads(test_json_str)
-
+test_json_str = os.getenv('TEST_SPECTR_FILE')
 test_project_id = int(os.getenv('TEST_PROJECT_ID'))
+test_spectr_id = int(os.getenv('TEST_SPECTR_FILE'))
+
+test_json_parsed = {'project_id': test_project_id, 'spectr_file_id': test_spectr_id,
+                    'hardklor_conf': read_conf_file('test_hardklor.conf'),
+                    'bullseye_conf': read_conf_file('test_bullseye.conf')}
 
 # create request
 url = 'http://' + service_host + ':' + service_port + '/requestFeatureDetectionRun'
@@ -47,3 +59,6 @@ while True:
     print('Got status:', str(json.loads(response.text)), flush=True)
 
     time.sleep(10)
+
+
+
