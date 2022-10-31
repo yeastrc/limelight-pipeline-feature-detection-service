@@ -100,6 +100,10 @@ def get_queue_position(request_id, request_queue):
         if request_ob['id'] == request_id:
             return idx + 1
 
+    print('Error getting queue position:')
+    print('request_id', request_id)
+    print('request_queue', request_queue)
+
     raise ValueError('Did not find request in request queue')
 
 
