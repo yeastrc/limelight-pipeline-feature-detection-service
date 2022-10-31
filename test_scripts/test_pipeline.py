@@ -33,7 +33,7 @@ def read_conf_file(conf_filename):
 load_dotenv()
 
 service_host = 'localhost'
-service_port = os.getenv('WEBAPP_PORT')
+service_port = os.getenv('HOST_MACHINE_WEBAPP_PORT')
 
 test_json_str = os.getenv('TEST_SPECTR_FILE')
 test_project_id = int(os.getenv('TEST_PROJECT_ID'))
