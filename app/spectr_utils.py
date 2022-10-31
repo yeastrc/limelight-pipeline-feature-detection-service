@@ -31,7 +31,7 @@ def generate_ob_for_get_scan_numbers_post_request(scan_file_hash_key, scan_level
         dict: A dict to send to spectr as JSON
     """
 
-    ob = {'scanFileAPIKey': scan_file_hash_key, 'scanNumber': scan_level}
+    ob = {'scanFileAPIKey': scan_file_hash_key, 'scanLevel': scan_level}
 
     return ob
 
