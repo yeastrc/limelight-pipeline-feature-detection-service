@@ -37,7 +37,7 @@ service_port = os.getenv('WEBAPP_PORT')
 
 test_json_str = os.getenv('TEST_SPECTR_FILE')
 test_project_id = int(os.getenv('TEST_PROJECT_ID'))
-test_spectr_id = int(os.getenv('TEST_SPECTR_FILE'))
+test_spectr_id = os.getenv('TEST_SPECTR_FILE')
 
 test_json_parsed = {'project_id': test_project_id, 'spectr_file_id': test_spectr_id,
                     'hardklor_conf': read_conf_file('test_hardklor.conf'),
