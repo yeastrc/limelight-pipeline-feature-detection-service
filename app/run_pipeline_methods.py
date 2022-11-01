@@ -209,6 +209,10 @@ def move_data_to_final_destination(request, request_status_dict, workdir):
     if not os.path.exists(final_destination_dir):
         os.mkdir(final_destination_dir)
 
+    final_destination_dir = os.path.join(final_destination_dir, request['id'])
+    if not os.path.exists(final_destination_dir):
+        os.mkdir(final_destination_dir)
+
     # move the result files to the final location
     shutil.move(
         os.path.join(workdir, __hardklor_results_file__),
