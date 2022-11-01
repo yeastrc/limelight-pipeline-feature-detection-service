@@ -140,6 +140,7 @@ def execute_bullseye(request, request_status_dict, workdir):
     # add rest of required CLI params
     execute_array.extend(
         [
+            '-o',
             __bullseye_results_file__,
             __hardklor_results_file__,
             __ms2_file__,
@@ -148,7 +149,7 @@ def execute_bullseye(request, request_status_dict, workdir):
         ]
     )
 
-    print('Bullseye exec arr:', bullseye_config_dict)
+    print('Bullseye exec arr:', execute_array)
 
     # run bullseye
     result = subprocess.run(
@@ -205,6 +206,10 @@ def move_data_to_final_destination(request, request_status_dict, workdir):
 
     # place the resulting data in the final_destination_dir/project_id/
     final_destination_dir = os.path.join(final_destination_dir, str(project_id))
+    if not os.path.exists(final_destination_dir):
+        os.mkdir(final_destination_dir)
+
+    final_destination_dir = os.path.join(final_destination_dir, request['id'])
     if not os.path.exists(final_destination_dir):
         os.mkdir(final_destination_dir)
 
