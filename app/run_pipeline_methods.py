@@ -152,7 +152,8 @@ def execute_bullseye(request, request_status_dict, workdir):
         execute_array,
         cwd=workdir,
         capture_output=True,
-        text=True
+        text=True,
+        encoding="ISO-8859-1"
     )
     print(result.stdout)
     print(result.stderr)
