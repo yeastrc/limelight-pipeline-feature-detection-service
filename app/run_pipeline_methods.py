@@ -128,7 +128,6 @@ def execute_bullseye(request, request_status_dict, workdir):
         raise ValueError("No bullseye config data.")
 
     bullseye_config_dict = bullseye_utils.convert_bullseye_config_to_dict(bullseye_config_data)
-
     print('Bullseye config:', bullseye_config_dict)
 
     # the array to build for the executable passed to subprocess.run
@@ -148,6 +147,8 @@ def execute_bullseye(request, request_status_dict, workdir):
             'nomatches.ms2'
         ]
     )
+
+    print('Bullseye exec arr:', bullseye_config_dict)
 
     # run bullseye
     result = subprocess.run(
