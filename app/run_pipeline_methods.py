@@ -129,6 +129,8 @@ def execute_bullseye(request, request_status_dict, workdir):
 
     bullseye_config_dict = bullseye_utils.convert_bullseye_config_to_dict(bullseye_config_data)
 
+    print('Bullseye config:', bullseye_config_dict)
+
     # the array to build for the executable passed to subprocess.run
     execute_array = [bullseye_filter_executable]
 
