@@ -148,7 +148,7 @@ def execute_bullseye(request, request_status_dict, workdir):
         ]
     )
 
-    print('Bullseye exec arr:', bullseye_config_dict)
+    print('Bullseye exec arr:', execute_array)
 
     # run bullseye
     result = subprocess.run(
