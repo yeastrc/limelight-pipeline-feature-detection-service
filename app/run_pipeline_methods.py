@@ -140,6 +140,7 @@ def execute_bullseye(request, request_status_dict, workdir):
     # add rest of required CLI params
     execute_array.extend(
         [
+            '-o',
             __bullseye_results_file__,
             __hardklor_results_file__,
             __ms2_file__,
