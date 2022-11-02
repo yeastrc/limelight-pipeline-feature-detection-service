@@ -135,7 +135,10 @@ def execute_bullseye(request, request_status_dict, workdir):
 
     # add any user CLI params
     for key, value in bullseye_config_dict.items():
-        execute_array.extend(['-' + key, value])
+        if value == 'true':
+            execute_array.extend(['-' + key])
+        else:
+            execute_array.extend(['-' + key, value])
 
     # add rest of required CLI params
     execute_array.extend(
