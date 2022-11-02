@@ -1,4 +1,4 @@
-"""Script to test entire conversion process"""
+"""Script to test entire pipeline"""
 
 #   Copyright 2022 Michael Riffle
 #
