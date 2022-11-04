@@ -12,7 +12,7 @@ follow these directions.
 1. Pull this repository to your local system: `git clone https://github.com/yeastrc/limelight-pipeline-feature-detection-service.git`
 2. Copy `env-example` to `.env` (`cp env-example .env`). 
 3. Edit `.env` and set the requested variables for your local system. See below for the list of items to configure.
-4. Bring up the service with `docker-compose up --detach --build`
+4. Bring up the service with `sudo docker-compose up --detach --build`
 
 ### Items in `.env` to Configure
 
