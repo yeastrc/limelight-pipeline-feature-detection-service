@@ -105,6 +105,8 @@ def execute_hardklor(request, request_status_dict, workdir):
     hardklor_timeout = os.getenv(__hardklor_timeout_env_key__)
     if hardklor_timeout == '0':
         hardklor_timeout = None
+    else:
+        hardklor_timeout = int(hardklor_timeout)
 
     hardklor_filter_executable = os.getenv(__hardklor_filter_executable_path_env_key__)
     if not os.path.exists(hardklor_filter_executable):
