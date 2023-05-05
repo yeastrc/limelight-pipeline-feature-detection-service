@@ -232,8 +232,9 @@ def handle_spectr_success(response, scan_file_hash_key):
 
         peaks = scan_ob['peaks']
 
+        # if this scan has no peaks, do not include it
         if peaks is None or len(peaks) < 1:
-            raise ValueError('Found no peaks in scan ' + str(scan_number) + ' for spectr file ' + scan_file_hash_key)
+            continue
 
         for peak_ob in peaks:
             peak_list_intensity.append(peak_ob['intensity'])
