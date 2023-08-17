@@ -35,6 +35,9 @@ __webapp_port_env_key__ = 'WEBAPP_PORT'
 __spectr_get_scan_data_env_key__ = 'SPECTR_GET_SCAN_DATA_URL'
 __spectr_get_scan_numbers_env_key__ = 'SPECTR_GET_SCAN_NUMBERS_URL'
 
+# the hardklor timeout
+__hardklor_timeout_env_key__ = 'HARDKLOR_TIMEOUT'
+
 # environmental variable name for the full path to the work dir
 __workdir_env_key__ = 'APP_WORKDIR'
 
@@ -73,7 +76,8 @@ env_var_names = [
     __workdir_env_key__,
     __final_dir_env_key__,
     __hardklor_filter_executable_path_env_key__,
-    __bullseye_filter_executable_path_env_key__
+    __bullseye_filter_executable_path_env_key__,
+    __hardklor_timeout_env_key__
 ]
 
 for env_var_name in env_var_names:

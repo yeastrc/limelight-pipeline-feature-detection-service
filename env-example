@@ -23,6 +23,11 @@ GID=0
 # ideally this will match spectr's configured maximum batch size
 SPECTR_BATCH_SIZE=50
 
+# The timeout in seconds for running Hardklor. If Hardklor runs for longer
+# than this duration it will be terminated and an error generated
+# Set to 0 to disable timeout
+HARDKLOR_TIMEOUT=3600
+
 # data in the working directory will be deleted on successful runs
 # change to "no" to never delete, "yes" to always delete
 APP_CLEAN_WORKDIR="on success"

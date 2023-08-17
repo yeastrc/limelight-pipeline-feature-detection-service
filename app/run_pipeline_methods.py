@@ -17,7 +17,7 @@
 from . import ms1_lib, ms2_lib, spectr_utils, general_utils, bullseye_utils
 from . import __hardklor_config_file__, __hardklor_results_file__, __bullseye_results_file__, __ms1_file__,\
     __ms2_file__, __hardklor_filter_executable_path_env_key__, __bullseye_filter_executable_path_env_key__,\
-    __final_dir_env_key__, __clean_working_directory_env_key__
+    __final_dir_env_key__, __clean_working_directory_env_key__, __hardklor_timeout_env_key__
 import os
 import subprocess
 import shutil
@@ -102,6 +102,12 @@ def execute_hardklor(request, request_status_dict, workdir):
 
     request_status_dict[request['id']]['end_user_message'] = 'Running Hardklor'
 
+    hardklor_timeout = os.getenv(__hardklor_timeout_env_key__)
+    if hardklor_timeout == '0':
+        hardklor_timeout = None
+    else:
+        hardklor_timeout = int(hardklor_timeout)
+
     hardklor_filter_executable = os.getenv(__hardklor_filter_executable_path_env_key__)
     if not os.path.exists(hardklor_filter_executable):
         raise ValueError('Could not find Hardklor executable:', hardklor_filter_executable)
@@ -110,7 +116,8 @@ def execute_hardklor(request, request_status_dict, workdir):
         [hardklor_filter_executable, __hardklor_config_file__],
         cwd=workdir,
         capture_output=True,
-        text=True
+        text=True,
+        timeout=hardklor_timeout
     )
     print(result.stdout)
     print(result.stderr)
