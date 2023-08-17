@@ -153,7 +153,7 @@ def execute_bullseye(request, request_status_dict, workdir):
     for key, value in bullseye_config_dict.items():
         if value == 'true':
             execute_array.extend(['-' + key])
-        else:
+        elif value != 'false':
             execute_array.extend(['-' + key, value])
 
     # add rest of required CLI params
